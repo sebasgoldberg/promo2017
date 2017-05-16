@@ -1,0 +1,138 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="generated.app.controller.detail_page_2" xmlns:uxap="sap.uxap" xmlns:m="sap.m" xmlns:chart="sap.chart" xmlns:data="sap.chart.data" xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout showTitleInHeaderContent="true" showHeaderContent="true" showAnchorBar="true" showFooter="false" subSectionLayout="TitleOnTop">
+        <uxap:headerContent>
+            <m:VBox alignItems="Stretch" direction="Column" fitContainer="false" width="auto" height="auto" justifyContent="Start" renderType="Div" visible="true" displayInline="false">
+                <m:items>
+                    <m:ObjectNumber number="{path: 'Resultados', type: 'sap.ui.model.type.String'}" unit="BRL" emphasized="true" state="{EstadoResultados}"/>
+                    <m:ObjectStatus title="" text="{path: 'EmAtraso', type: 'sap.ui.model.type.String'}" state="Error" icon="sap-icon://message-error"/>
+                    <m:ObjectStatus title="" text="{path: 'Pendente', type: 'sap.ui.model.type.String'}" state="None" icon="sap-icon://message-warning"/>
+                </m:items>
+                <m:layoutData/>
+            </m:VBox>
+        </uxap:headerContent>
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectImageURI="{Imagem}" objectTitle="{Nome}" objectSubtitle="" headerDesign="Light" objectImageShape="Square" isObjectIconAlwaysVisible="false" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false" isActionAreaAlwaysVisible="true">
+                <uxap:actions/>
+                <uxap:breadCrumbsLinks/>
+                <uxap:navigationBar>
+                    <m:Bar design="Auto">
+                        <m:contentLeft>
+                            <m:Button text="Voltar" type="Back" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+                        </m:contentLeft>
+                        <m:contentMiddle/>
+                        <m:contentRight/>
+                    </m:Bar>
+                </uxap:navigationBar>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="true">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Dados Basicos" mode="Expanded">
+                        <uxap:blocks>
+                            <m:ObjectAttribute title="Inicio Planejamento" text="{path: 'DataInicioPlanejamento', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" active="false"/>
+                            <m:ObjectAttribute title="Inicio Venda" text="{path: 'DataInicioVenda', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" active="false"/>
+                            <m:ObjectAttribute title="Termino" text="{path: 'DataTermino', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" active="false"/>
+                        </uxap:blocks>
+                        <uxap:moreBlocks/>
+                        <uxap:actions/>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+                <uxap:customAnchorBarButton/>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="true">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Planejamento" mode="Expanded">
+                        <uxap:blocks>
+                            <m:Table width="100%" noDataText="No data" mode="None" showSeparators="All" growing="false" growingThreshold="20" growingScrollToLoad="false" itemPress="_onTableItemPress" items="{Detalhe}">
+                                <m:infoToolbar>
+                                    <m:Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
+                                        <m:content>
+                                            <m:Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </m:content>
+                                    </m:Toolbar>
+                                </m:infoToolbar>
+                                <m:headerToolbar/>
+                                <m:columns>
+                                    <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <m:header>
+                                            <m:Text text="Tarefa" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </m:header>
+                                        <m:footer/>
+                                    </m:Column>
+                                    <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <m:header>
+                                            <m:Text text="Data Inicio" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </m:header>
+                                        <m:footer/>
+                                    </m:Column>
+                                    <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <m:header>
+                                            <m:Text text="Data Termino" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </m:header>
+                                        <m:footer/>
+                                    </m:Column>
+                                    <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <m:header>
+                                            <m:Text text="Em Atraso" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </m:header>
+                                        <m:footer/>
+                                    </m:Column>
+                                    <m:Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+                                        <m:header>
+                                            <m:Text text="Pendente" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                        </m:header>
+                                        <m:footer/>
+                                    </m:Column>
+                                </m:columns>
+                                <m:items>
+                                    <m:ColumnListItem type="Navigation">
+                                        <m:cells>
+                                            <m:ObjectIdentifier title="{Nome}" text="" titleActive="false" visible="true"/>
+                                            <m:Text text="{path: 'DataInicio', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"/>
+                                            <m:ObjectStatus text="{path: 'DataTermino', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" state="{EstadoAtraso}"/>
+                                            <m:ObjectStatus text="{path: 'EmAtraso', type: 'sap.ui.model.type.String'}" state="{EstadoAtraso}" icon="sap-icon://message-error"/>
+                                            <m:ObjectStatus text="{path: 'Pendente', type: 'sap.ui.model.type.String'}" state="None" icon="sap-icon://message-warning"/>
+                                        </m:cells>
+                                    </m:ColumnListItem>
+                                </m:items>
+                            </m:Table>
+                        </uxap:blocks>
+                        <uxap:moreBlocks/>
+                        <uxap:actions/>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+                <uxap:customAnchorBarButton/>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection showTitle="true" title="Page Section Title" titleUppercase="true" visible="true">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection title="Resultados" mode="Expanded">
+                        <uxap:blocks>
+                            <chart:Chart id="sap_uxap_ObjectPageLayout_0-sections-sap_uxap_ObjectPageSection-1493927072308-subSections-sap_uxap_ObjectPageSubSection-1-blocks-sap_chart_BarChart-1493929437647" width="100%" height="450px" visibleDimensions="Setor" visibleMeasures="Venta,VentaEsperada" data="{ventas}" chartType="bar" isAnalytical="false" selectionMode="Single" uiConfig="{}" vizProperties="{plotArea:{dataLabel:{visible: true,hideWhenOverlap:true}}}">
+                                <chart:dimensions>
+                                    <data:Dimension name="Setor" label="Setor" role="category"/>
+                                </chart:dimensions>
+                                <chart:measures>
+                                    <data:Measure name="Venta" label="Venta Real" role="axis2"/>
+                                    <data:Measure name="VentaEsperada" label="Venta Esperada" role="axis2"/>
+                                </chart:measures>
+                            </chart:Chart>
+                        </uxap:blocks>
+                        <uxap:moreBlocks/>
+                        <uxap:actions>
+                            <m:ComboBox value="Setor" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%" selectionChange="_onComboBoxSelectionChange">
+                                <m:items>
+                                    <core:Item text="Setor" enabled="true"/>
+                                    <core:Item text="Loja" enabled="true"/>
+                                    <core:Item text="Produto" enabled="true"/>
+                                </m:items>
+                            </m:ComboBox>
+                        </uxap:actions>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+                <uxap:customAnchorBarButton/>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer/>
+    </uxap:ObjectPageLayout>
+</mvc:View>

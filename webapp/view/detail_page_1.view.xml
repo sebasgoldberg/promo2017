@@ -1,0 +1,40 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="generated.app.controller.detail_page_1" xmlns:m="sap.m">
+    <m:Page title="Eventos" showHeader="true" showFooter="true" showNavButton="false">
+        <m:content>
+            <m:ObjectHeader intro="" title="{Bandeira}" icon="{Imagem}" number="{path: 'Resultados', type: 'sap.ui.model.type.String'}" numberUnit="BRL" numberState="{EstadoResultados}" showMarkers="false" markFavorite="false" markFlagged="false" backgroundDesign="Transparent" condensed="false">
+                <m:attributes/>
+                <m:statuses>
+                    <m:ObjectStatus text="{path: 'EmAtraso', type: 'sap.ui.model.type.String'}" state="{EstadoAtraso}" icon="sap-icon://message-error"/>
+                    <m:ObjectStatus text="{path: 'Pendente', type: 'sap.ui.model.type.String'}" state="None" icon="sap-icon://message-warning"/>
+                </m:statuses>
+            </m:ObjectHeader>
+            <m:List mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="false" growingThreshold="20" growingScrollToLoad="false" itemPress="_onListItemPress1" items="{Evento}">
+                <m:infoToolbar/>
+                <m:headerToolbar>
+                    <m:Toolbar visible="true" enabled="true" width="" design="Solid">
+                        <m:content>
+                            <m:SearchField placeholder="Pesquisa" showSearchButton="true" visible="true" width="100%"/>
+                        </m:content>
+                    </m:Toolbar>
+                </m:headerToolbar>
+                <m:items>
+                    <m:ObjectListItem intro="" title="{Nome}" number="{path: 'Resultados', type: 'sap.ui.model.type.String'}" numberUnit="BRL" numberState="{EstadoResultados}" type="Navigation" selected="true" showMarkers="false">
+                        <m:attributes>
+                            <m:ObjectAttribute title="Inicio Planejamento" text="{path: 'DataInicioPlanejamento', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" active="false"/>
+                            <m:ObjectAttribute title="Inicio Venda" text="{path: 'DataInicioVenda', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" active="false"/>
+                            <m:ObjectAttribute title="Termino" text="{path: 'DataTermino', type: 'sap.ui.model.type.DateTime', formatOptions: { UTC: true, style: 'short' }}" active="false"/>
+                        </m:attributes>
+                        <m:firstStatus>
+                            <m:ObjectStatus title="Tarefas Em Atraso" text="{path: 'EmAtraso', type: 'sap.ui.model.type.String'}" state="{EstadoAtraso}" icon="sap-icon://message-error"/>
+                        </m:firstStatus>
+                        <m:secondStatus>
+                            <m:ObjectStatus title="Tarefas Pendentes" text="{path: 'Pendente', type: 'sap.ui.model.type.String'}" state="None" icon="sap-icon://message-warning"/>
+                        </m:secondStatus>
+                    </m:ObjectListItem>
+                </m:items>
+            </m:List>
+        </m:content>
+        <m:footer/>
+        <m:headerContent/>
+    </m:Page>
+</mvc:View>
